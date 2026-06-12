@@ -36,7 +36,7 @@ test('Address lookup returns correct results for 4444 Weber Rd, 63123', async ({
     await expect(page.getByText('63123', { exact: true })).toBeVisible();
 
     // ── 6. Results section ────────────────────────────────────────────────────
-    await expect(page.getByText('4444 WEBER RD, SAINT LOUIS, MO, 63123', { exact: true })).toBeVisible();
+    await expect(page.getByText('4444 WEBER RD, SAINT LOUIS, MO 63123', { exact: true })).toBeVisible();
 
     // Scope "St Louis County" to the Geographic Code row by its label
     await expect(
