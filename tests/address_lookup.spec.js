@@ -44,7 +44,7 @@ test('Address lookup returns correct results for 4444 Weber Rd, 63123', async ({
     ).toBeVisible();
 
     await expect(
-        page.getByText('Patron Type:').locator('..').getByText('Resident', { exact: true })
+        page.getByText('Patron Code:').locator('..').getByText('Resident', { exact: true })
     ).toBeVisible();
 
     // ── 7. Details section ────────────────────────────────────────────────────
