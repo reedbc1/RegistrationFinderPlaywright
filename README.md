@@ -16,7 +16,7 @@ Playwright end-to-end tests for the [Registration Finder](https://registrationfi
 Install dependencies and the Playwright browser binaries:
 
 ```bash
-npm install
+npm ci
 npx playwright install chromium
 ```
 
@@ -25,7 +25,7 @@ npx playwright install chromium
 ## Running the Tests
 
 ```bash
-npx playwright test
+npm test
 ```
 
 Results are printed to the console. On failure, a screenshot and video are automatically saved to the `test-results/` directory.
@@ -54,27 +54,30 @@ This test verifies that submitting a known address returns the correct registrat
 4. **Wait for the results page**
    Waits for the URL to change to the `/lookup` results page before proceeding with assertions.
 
-5. **Assert the page heading**
-   Verifies that the heading `"Address Lookup Results"` is visible on the page.
+5. **Assert the results page title and heading**
+   Verifies that the page title and heading are both `"Address Lookup Results"`.
 
 6. **Assert the Input section**
-   Confirms the form echo displays the original inputs exactly:
+   Confirms the `.input-section` form echo displays the original inputs exactly:
    - Street Address: `4444 Weber Rd`
    - ZIP Code: `63123`
 
 7. **Assert the Results section**
-   Verifies the lookup returned the correct data:
-   - **Returned Address:** `4444 WEBER RD, SAINT LOUIS, MO, 63123`
+   Verifies the `.result-section` returned the correct data:
+   - **Returned Address:** `4444 WEBER RD, ST LOUIS, MO 63123`
    - **Geographic Code:** `St Louis County`
-   - **Patron Type:** `Resident`
+   - **Patron Code:** `Resident`
 
 8. **Assert the Details section**
-   Verifies the library district details are correct:
+   Verifies the `.detail-section` library district details are correct:
    - **County:** `St. Louis County`
    - **Library District:** `St. Louis County`
 
-9. **Assert the Back to Search button**
-   Confirms the `← Back to Search` navigation element is visible on the results page.
+9. **Assert the footer navigation and attribution**
+   Confirms the `.container-footer` includes:
+   - A `← Back to Search` link pointing to `/`
+   - `Powered by` text
+   - An `Esri` link pointing to `https://www.esri.com/en-us/home`
 
 ### Pass / Fail Criteria
 

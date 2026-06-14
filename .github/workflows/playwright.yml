@@ -1,9 +1,8 @@
 name: Playwright Tests
 
 on:
-  # Run every day at 6:00 AM CST (12:00 UTC)
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '0 4 * * *'
 
   # Allow manual runs from the GitHub Actions UI
   workflow_dispatch:
